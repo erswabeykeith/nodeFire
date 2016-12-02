@@ -13,10 +13,16 @@ app.controller("SampleCtrl", function($firebaseAuth, $http) {
   };
 
   self.submitNewUser = function(){
-    (){
-    console.log("Authentication failed: ", error);
-  });
-};
+    $http({
+      method: 'POST',
+      url: '/privateData',
+      headers: {
+        id_token: idToken
+      }
+    }).then(function(response){
+      console.log(response);
+      self.secretData = response.data;
+    };
 
   // This code runs whenever the user changes authentication states
   // e.g. whevenever the user logs in or logs out
