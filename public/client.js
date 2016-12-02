@@ -12,11 +12,20 @@ app.controller("SampleCtrl", function($firebaseAuth, $http) {
     });
   };
 
+  self.submitNewUser = function(){
+    (){
+    console.log("Authentication failed: ", error);
+  });
+};
+
   // This code runs whenever the user changes authentication states
   // e.g. whevenever the user logs in or logs out
   // this is where we put most of our logic so that we don't duplicate
   // the same things in the login and the logout code
+
+
   auth.$onAuthStateChanged(function(firebaseUser){
+    console.log('firebaseUser: ', firebaseUser);
     // firebaseUser will be null if not logged in
     if(firebaseUser) {
       // This is where we make our call to our server
