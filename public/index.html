@@ -20,6 +20,21 @@
   </head>
   <body ng-controller="SampleCtrl as sc">
     <h1>Hi! Log in to get some secret data from the server!</h1>
+
+    <form ng-if="sc.secretData.length > 0">
+
+      <label for="email">Gmail Account: </label>
+      <input type="text" ng-model="sc.newUser.email" id="email" placeholder="Gmail Account" />
+      <label for="clearanceLevel">Clearence Level: </label>
+      <select ng-model="sc.newUser.clearanceLevel">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+      <button ng-click="sc.submitNewUser()">Submit New User</button>
+    </form>
     <button ng-click="sc.logIn()">Log In</button>
     <button ng-click="sc.logOut()">Log Out</button>
     <div ng-if="sc.secretData.length === 0">Log in to get some secret data.</div>

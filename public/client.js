@@ -28,6 +28,7 @@ app.controller("SampleCtrl", function($firebaseAuth, $http) {
             id_token: idToken
           }
         }).then(function(response){
+          console.log(response);
           self.secretData = response.data;
         });
       });
